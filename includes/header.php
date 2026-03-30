@@ -15,6 +15,7 @@ if (!isset($_SESSION['access']) && basename($_SERVER['PHP_SELF']) !== 'index.php
     <base href="/wedding_hub/">
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/wedding_hub/favicon.jpg">
 </head>
 <body>
 <header class="site-header">
