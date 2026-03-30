@@ -20,9 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Natalia & Łukasz</title>
+    <title>Natalia i Łukasz</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <link rel="icon" type="image/jpeg" href="/wedding_hub/favicon.jpg">
+    
     <style>
         body {
             margin: 0;

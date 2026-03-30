@@ -11,7 +11,7 @@ if (!isset($_SESSION['access']) && basename($_SERVER['PHP_SELF']) !== 'index.php
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Natalia & Łukasz</title>
+    <title>Natalia i Łukasz</title>
     <base href="/wedding_hub/">
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
