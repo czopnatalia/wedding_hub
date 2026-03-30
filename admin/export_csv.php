@@ -1,28 +1,42 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: admin_login.php");
-    exit;
-}
-require '../includes/db.php';
+require_once "../includes/db.php";
 
-header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename="raport_rsvp.csv"');
+// Pobranie danych
+$stmt = $db->query("SELECT * FROM guests ORDER BY name ASC");
+$guests = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Nagłówki CSV
+header('Content-Type: text/csv; charset=UTF-8');
+header('Content-Disposition: attachment; filename="lista_gosci.csv"');
+
+echo "\xEF\xBB\xBF";
+
+// Otwieramy strumień
 $output = fopen('php://output', 'w');
-fputcsv($output, ['Kod', 'Imię i nazwisko', 'Potwierdza', 'Bezglutenowa', 'Wege', 'Inna dieta', 'Osoba towarzysząca', 'Piosenka']);
 
-$res = $conn->query("SELECT * FROM guests ORDER BY code, is_companion, name");
-while ($row = $res->fetch_assoc()) {
+// Nagłówki kolumn
+fputcsv($output, [
+    'Imię i nazwisko',
+    'Obecność',
+    'Dieta'
+], ';'); 
+
+// Dane
+foreach ($guests as $g) {
+
+    $diets = [];
+    if ($g['diet_gluten_free']) $diets[] = "Bez glutenu";
+    if ($g['diet_vege']) $diets[] = "Wege";
+    if ($g['diet_vegan']) $diets[] = "Wegańska";
+    if ($g['diet_lactose']) $diets[] = "Bez laktozy";
+    if ($g['diet_other']) $diets[] = $g['diet_other'];
+
     fputcsv($output, [
-        $row['code'],
-        $row['name'],
-        $row['attending'] ? 'Tak' : 'Nie',
-        $row['diet_gluten_free'] ? 'Tak' : 'Nie',
-        $row['diet_vege'] ? 'Tak' : 'Nie',
-        $row['diet_other'],
-        $row['is_companion'] ? 'Tak' : 'Nie',
-        $row['song_request']
-    ]);
+        $g['name'],
+        $g['attending'] ? "Obecny" : "Nieobecny",
+        implode(", ", $diets)
+    ], ';');
 }
+
+fclose($output);
 exit;

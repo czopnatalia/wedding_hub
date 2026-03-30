@@ -172,7 +172,7 @@ include 'includes/header.php';
         </div>
 
         <!-- DODAJ KOLEJNĄ OSOBĘ -->
-        <button type="button" id="add-person" class="add-person-btn">+ Potwierdź obecność kolejnej osoby</button>
+        <button type="button" id="add-person" class="add-person-btn">+ Potwierdź obecność osoby towarzyszącej lub innego członka rodziny</button>
 
         <!-- WYŚLIJ -->
         <button type="submit" class="submit-btn">Wyślij potwierdzenie</button>
