@@ -17,6 +17,8 @@ if ($admin && $password === $admin['password_hash']) {
     $_SESSION['admin_logged_in'] = true;
     $_SESSION['admin_username'] = $admin['username'];
 
+    $_SESSION['access'] = true;
+
     header("Location: /wedding_hub/admin/dashboard.php");
     exit;
 }

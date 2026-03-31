@@ -10,8 +10,14 @@ include 'includes/header.php';
     margin: 40px auto 80px;
     padding: 32px 30px;
     border-radius: var(--radius-lg);
-    background: var(--bg-card);
-    backdrop-filter: blur(18px);
+    
+    /* ZMIANA: Zamiast var(--bg-card) dajemy rgba */
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* ZMIANA: Subtelniejsza ramka pasująca do szkła */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     box-shadow: var(--shadow-soft);
 
     /* WYŁĄCZAMY HOVER */

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: /wedding_hub/admin/admin_login.php");
     exit;
 }
@@ -31,11 +31,11 @@ $diet_counts = [
 }
 
 .admin-table th {
-    background: rgba(255,255,255,0.12);
+    background: rgba(128, 106, 83, 0.33);
     color: #ffffff;
     padding: 12px;
     font-weight: 700;
-    border-bottom: 2px solid rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(234, 205, 161, 0.33);
     text-align: left;
     cursor: pointer;
 }

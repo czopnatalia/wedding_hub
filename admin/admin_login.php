@@ -12,8 +12,8 @@
     text-align: center;
 }
 
-.login-panel h2 {
-    margin-bottom: 25px;
+.login-input::placeholder {
+    color: var(--text-muted);
 }
 
 .login-input {
@@ -21,10 +21,10 @@
     padding: 12px;
     margin-bottom: 18px;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.25);
-    background: rgba(10,8,6,0.65);
+    border: 1px solid var(--accent);
     color: var(--text-main);
 }
+
 
 .login-btn {
     background: var(--accent);

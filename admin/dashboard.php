@@ -18,6 +18,7 @@ include '../includes/header.php';
 
         <a class="nav-tile" href="/wedding_hub/admin/guests.php">Lista gości</a>
         <a class="nav-tile" href="/wedding_hub/admin/stats.php">Statystyki</a>
+        <a class="nav-tile" href="/wedding_hub/admin/gallery.php">Moderacja zdjęć</a>
         <a class="nav-tile" href="/wedding_hub/admin/admin_logout.php">Wyloguj</a>
 
     </nav>

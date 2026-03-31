@@ -27,8 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         body {
             margin: 0;
             height: 100vh;
-            /*background: url('assets/hero2.jpg') center/cover no-repeat fixed;*/
-            background: radial-gradient(circle at top, #2b2118 0, #0b0806 55%, #050302 100%);
+            /* ZMIANA: Tło z chmurami zamiast koloru */
+            background-image: url('assets/chmury.webp'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -38,12 +41,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .panel {
             width: 90%;
             max-width: 650px;
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(14px);
+            /* ZMIANA: Półprzezroczyste szkło */
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            
             padding: 45px 50px;
-            border-radius: 10px;
+            border-radius: 25px;
             text-align: center;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease forwards;
         }
 
@@ -57,14 +64,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 3rem;
             letter-spacing: 0.18em;
             margin: 0 0 10px;
-            color: #2b2118;
+            color: #4a3f35;
             white-space: nowrap;
         }
 
         .date {
             font-size: 1.1rem;
-            color: #4a3f36;
+            color: #8c7e6d;
             margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         /* Zegar */
@@ -76,58 +85,64 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(10px);
+            /* ZMIANA: Pudełka czasu też są szklane */
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            
             padding: 16px 18px;
             border-radius: 14px;
-            min-width: 70px;
-            font-size: 1.4rem;
+            min-width: 75px;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #2b2118;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            color: #4a3f35;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Pole hasła */
         input[type="password"] {
             width: 80%;
             max-width: 320px;
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
-            border: 1px solid #2b2118;
-            background: rgba(255,255,255,0.85);
+            border: 1px solid #d4b996;
+            background: rgba(255, 255, 255, 0.8); /* Jaśniejsze tło dla czytelności wpisywania */
             font-size: 1rem;
             margin-bottom: 20px;
             outline: none;
+            color: #4a3f35;
+            text-align: center;
         }
 
-        /* Subtelny przycisk */
         button {
-            background: #2b2118;
-            color: #f5eee7;
+            background: #d4b996;
+            color: #ffffff;
             border: none;
-            padding: 12px 34px;
+            padding: 14px 40px;
             border-radius: 12px;
             font-size: 1.05rem;
             cursor: pointer;
             transition: 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         button:hover {
-            background: #3b2b1f;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+            background: #c5a985;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 185, 150, 0.4);
         }
 
         .error {
-            color: #b30000;
-            margin-top: 12px;
-            font-size: 0.9rem;
+            color: #c30175;
+            margin-top: 15px;
+            font-size: 0.95rem;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .time-box { min-width: 55px; font-size: 1.1rem; padding: 12px; }
-            .panel { padding: 30px 25px; }
+            h1 { font-size: 1.8rem; white-space: normal; }
+            .countdown { gap: 8px; }
+            .time-box { min-width: 50px; font-size: 1rem; padding: 10px; }
+            .panel { padding: 35px 20px; width: 85%; }
         }
     </style>
 

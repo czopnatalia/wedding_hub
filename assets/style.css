@@ -1,16 +1,23 @@
 :root {
-    --bg-main: #0f0b09;
-    --bg-card: rgba(255, 255, 255, 0.16);
-    --bg-card-strong: rgba(255, 255, 255, 0.32);
-    --accent: #f2d3a0;
-    --accent-soft: rgba(242, 211, 160, 0.25);
-    --text-main: #f7f3ee;
-    --text-muted: #c9b9a5;
-    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-    --radius-lg: 22px;
-    --radius-md: 16px;
-    --transition-fast: 0.25s ease;
-    --transition-slow: 0.45s ease;
+    /* KOLORY TŁA - JASNE I CIEPŁE */
+    --bg-main: #fcfaf7;          /* Bardzo jasny krem */
+    --bg-card: #f4f4f4;          /* Czysta biel kart */
+    --bg-card-strong: #e9decf;   /* Delikatny beż dla podświetlenia */
+
+    /* KOLORY AKCENTÓW - CIEPŁY BEŻ/ZŁOTO */
+    --accent: #dec39f;           /* Szlachetny beż */
+    --accent-soft: rgba(212, 185, 150, 0.2);
+
+    /* KOLORY TEKSTU - CZYTELNY BRĄZ */
+    --text-main: #564d44;        /* Głęboki brąz zamiast czerni */
+    --text-muted: #ddb698;       /* Subtelny brąz do opisów */
+
+    /* EFEKTY - LEKKIE I MIĘKKIE (ZOSTAWIAMY LOGIKĘ) */
+    --shadow-soft: 0 10px 30px rgba(140, 126, 109, 0.12);
+    --radius-lg: 22px;           /* Zostawiamy - daje efekt miękkości */
+    --radius-md: 16px;           /* Zostawiamy */
+    --transition-fast: 0.25s ease; /* Zostawiamy */
+    --transition-slow: 0.45s ease; /* Zostawiamy */
 }
 
 *,
@@ -19,11 +26,25 @@
     box-sizing: border-box;
 }
 
+/* body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: radial-gradient(circle at top, #fdfcfb 0, #ede2d7 55%, #e9d2bb 100%);
+    color: var(--text-main);
+} */
+
+
 body {
     margin: 0;
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: radial-gradient(circle at top, #2b2118 0, #0b0806 55%, #050302 100%);
+    font-family: "Inter", sans-serif;
     color: var(--text-main);
+    
+    /* Chmury jako baza pod całą stroną */
+    background-image: url('chmury.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
 }
 
 /* ====== ANIMACJE BAZOWE ====== */
@@ -43,14 +64,55 @@ body {
 
 /* ====== NAGŁÓWEK GLOBALNY ====== */
 
+/* 
 .site-header {
     position: relative;
     width: 100%;
-    padding: 18px 40px 26px;
-    background: linear-gradient(120deg, rgba(0,0,0,0.9), rgba(30,20,15,0.9));
-    box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+    padding: 60px 40px 26px;
+    background: transparent; 
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--accent-soft);
+    box-shadow: 0 4px 15px rgba(111, 100, 86, 0.118);
+    z-index: 20;
+} */
+
+.site-header {
+    position: relative;
+    width: 100%;
+    padding: 60px 40px 26px; 
+    
+    /* ZMIANA: Zamiast transparent dajemy biały z 0.5 alpha */
+    background: rgba(255, 255, 255, 0.3) !important; 
+    
+    /* DODATKOWO: Rozmycie tła, aby uzyskać efekt "szronionego szkła" */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: none;
+    box-shadow: none;
     z-index: 20;
 }
+
+/* 
+.site-header {
+    position: relative;
+    width: 100%;
+    padding: 60px 40px 26px; 
+
+    background-image: url('chmury.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    background-color: rgba(255, 255, 255, 0.3); 
+    background-blend-mode: overlay;
+
+    border-bottom: 1px solid var(--accent-soft);
+    box-shadow: 0 4px 15px rgba(140, 126, 109, 0.05);
+    z-index: 20;
+}  */
+
 
 .site-header-inner {
     max-width: 1100px;
@@ -83,6 +145,7 @@ body {
     font-size: 2.4rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    color: var(--text-main);
 }
 
 /* ====== MENU – PANELE ZAKŁADEK ====== */
@@ -98,9 +161,10 @@ body {
     min-width: 150px;
     padding: 10px 18px;
     border-radius: var(--radius-md);
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(14px);
+    background: #ffffff;
     color: var(--text-main);
+    border: 1px solid var(--accent-soft);
+    backdrop-filter: blur(14px);
     text-decoration: none;
     text-align: center;
     font-weight: 500;
@@ -128,7 +192,7 @@ body {
 
 /* ====== KARTY / SEKCJE ====== */
 
-.section-card {
+/* .section-card {
     margin: 40px auto;
     padding: 32px 30px;
     border-radius: var(--radius-lg);
@@ -136,13 +200,22 @@ body {
     backdrop-filter: blur(18px);
     box-shadow: var(--shadow-soft);
     transition: transform var(--transition-slow), box-shadow var(--transition-slow), background var(--transition-slow);
+} */
+
+.section-card {
+    margin: 40px auto;
+    padding: 32px 30px;
+    border-radius: var(--radius-lg);
+    
+    /* EFEKT SZKŁA */
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-soft);
 }
 
-.section-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.9);
-    background: var(--bg-card-strong);
-}
 
 .section-card h2 {
     margin-bottom: 18px;
@@ -168,19 +241,22 @@ input, select, textarea {
     width: 100%;
     padding: 11px 12px;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.25);
-    background: rgba(10,8,6,0.65);
-    color: var(--text-main);
+    /* ZMIANA: Jasne tło i beżowa obwódka */
+    border: 1px solid var(--accent); 
+    background: #ffffff; 
+    color: var(--text-main); /* Ciemny brąz */
     font-size: 0.98rem;
     outline: none;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    transition: all var(--transition-fast);
 }
 
 input:focus, select:focus, textarea:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 1px rgba(242,211,160,0.6);
+    box-shadow: 0 0 0 1px rgba(242, 211, 160, 0.6);
     transform: translateY(-1px);
-    background: rgba(10,8,6,0.9);
+    background: rgba(255, 209, 166, 0.293);
+    outline: none;
+    transition: all var(--transition-fast);
 }
 
 /* ====== STOPKA ====== */
@@ -229,7 +305,7 @@ footer {
 
 @media (max-width: 768px) {
     .site-header {
-        padding: 14px 16px 20px;
+        padding: 40px 16px 20px;
     }
 
     .site-title-panel {
@@ -262,12 +338,7 @@ footer {
     background: rgba(255,255,255,0.12) !important;
 }
 
-/* ====== WYŁĄCZENIE HOVERA PANELI GŁÓWNYCH ====== */
-.section-card:hover {
-    transform: none !important;
-    box-shadow: var(--shadow-soft) !important;
-    background: var(--bg-card) !important;
-}
+
 
 /* ====== TYLKO KAFELKI MENU MAJĄ HOVER ====== */
 /* (tu nic nie zmieniamy – zostaje tak jak masz) */
@@ -291,4 +362,169 @@ footer {
     padding: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.15);
     color: var(--text-main);
+}
+
+
+/* ======= PRZYCISKI ======== */
+
+.btn-elegant {
+    display: inline-block;
+    background-color: var(--accent); /* Nasz złoty beż */
+    color: #ffffff !important;      /* Biały tekst */
+    padding: 10px 24px;
+    border-radius: var(--radius-md); /* Zaokrąglone rogi */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(212, 185, 150, 0.2);
+    margin: 15px 0;
+}
+
+.btn-elegant:hover {
+    background-color: #c5a985;     /* Nieco ciemniejszy beż */
+    transform: translateY(-2px);    /* Efekt uniesienia */
+    box-shadow: 0 6px 18px rgba(140, 126, 109, 0.25);
+    color: #ffffff !important;
+}
+
+
+/* ====== Galeria zdjęć =======*/
+
+/* Styl dla tła przyciemniającego */
+.lightbox-overlay {
+    display: none; /* Domyślnie ukryte */
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 63, 53, 0.4); /* Ciepły brąz z przezroczystością */
+    backdrop-filter: blur(5px); /* Delikatne rozmycie tła galerii */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Biała ramka dla "lewitującego" zdjęcia */
+.lightbox-frame {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    max-height: 90%;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-overlay.active .lightbox-frame {
+    transform: scale(1);
+}
+
+.lightbox-img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   MINIMALISTYCZNE STRZAŁKI BEZ TŁA (SAME GROTY)
+   ============================================================ */
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent; /* Brak tła */
+    color: rgba(255, 255, 255, 0.7); /* Biały, lekko przezroczysty kolor domyślny */
+    border: none;
+    width: 80px; /* Większy obszar klikalny dla wygody */
+    height: 100px;
+    cursor: pointer;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+/* Sam grot strzałki */
+.lightbox-arrow::after {
+    content: '';
+    display: block;
+    width: 25px; /* Nieco większy grot, skoro nie ma koła */
+    height: 25px;
+    border-top: 3px solid currentColor; /* Wyraźna linia 3px */
+    border-right: 3px solid currentColor;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+/* Pozycjonowanie i obrót */
+.lightbox-arrow.prev { left: 20px; }
+.lightbox-arrow.prev::after { transform: rotate(-135deg); }
+
+.lightbox-arrow.next { right: 20px; }
+.lightbox-arrow.next::after { transform: rotate(45deg); }
+
+/* EFEKT HOVER - Strzałka staje się wyraźniejsza i złota */
+.lightbox-arrow:hover {
+    color: var(--accent); /* Zmienia kolor na Twój złoty beż */
+}
+
+/* Delikatny ruch przy najechaniu */
+.lightbox-arrow.prev:hover::after {
+    transform: rotate(-135deg) translateX(5px);
+}
+.lightbox-arrow.next:hover::after {
+    transform: rotate(45deg) translateX(5px);
+}
+
+/* Na małych ekranach */
+@media (max-width: 768px) {
+    .lightbox-arrow {
+        width: 50px;
+    }
+    .lightbox-arrow::after {
+        width: 18px;
+        height: 18px;
+        border-top: 2px solid currentColor;
+    }
+}
+
+/* Stan ukryty (na początku i końcu galerii) */
+.lightbox-arrow.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+/* ============================================================
+   KARTA SEKCJI (Np. w galerii czy panelu)
+   ============================================================ */
+.section-card {
+    background: var(--bg-card);
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--text-main);
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
 }

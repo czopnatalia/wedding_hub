@@ -2,8 +2,14 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-if (!isset($_SESSION['access']) && basename($_SERVER['PHP_SELF']) !== 'index.php') {
-    header("Location: index.php");
+
+// Sprawdzamy, czy użytkownik ma JAKIKOLWIEK dostęp (jako gość LUB jako admin)
+$has_access = isset($_SESSION['access']) || isset($_SESSION['admin_logged_in']);
+$is_index = basename($_SERVER['PHP_SELF']) === 'index.php';
+
+// Jeśli nie ma dostępu i nie jest na stronie głównej (index.php) - wyrzuć do bramki
+if (!$has_access && !$is_index) {
+    header("Location: /wedding_hub/index.php");
     exit;
 }
 ?>
@@ -27,7 +33,7 @@ if (!isset($_SESSION['access']) && basename($_SERVER['PHP_SELF']) !== 'index.php
             <a class="nav-tile" href="home.php">Strona główna</a>
             <a class="nav-tile" href="rsvp.php">Potwierdź obecność</a>
             <a class="nav-tile" href="galeria.php">Galeria zdjęć</a>
-            <a class="nav-tile" href="admin/admin_login.php">Administrator</a>
+            <a class="nav-tile" href="admin/dashboard.php">Administrator</a>
         </nav>
     </div>
 </header>
