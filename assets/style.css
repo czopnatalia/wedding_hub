@@ -47,6 +47,21 @@ body {
     background-repeat: no-repeat;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* To sprawi, że strona główna (Twoja klasa .main) wypełni lukę */
+.main {
+    flex: 1;
+}
+
+/* Jeśli używasz klasy .main-panel zamiast .main w plikach admina: */
+.main-panel {
+    flex: 1;
+}
+
 /* ====== ANIMACJE BAZOWE ====== */
 
 .fade-in-up {
@@ -179,14 +194,14 @@ body {
     transform: translateY(-3px) scale(1.04);
     box-shadow: 0 16px 40px rgba(0,0,0,0.8);
     background: var(--accent-soft);
-    color: var(--accent);
+    color: var(--text-main);
 }
 
 /* ====== GŁÓWNY KONTENER PODSTRON ====== */
 
 .main {
     max-width: 1100px;
-    margin: 40px auto 80px;
+    margin: 40px auto 40px;
     padding: 0 20px;
 }
 
@@ -232,7 +247,7 @@ label {
     display: block;
     margin-bottom: 6px;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--text-main);
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
@@ -262,10 +277,13 @@ input:focus, select:focus, textarea:focus {
 /* ====== STOPKA ====== */
 
 footer {
+    margin-top: 50px;
+    border-top: 1px solid var(--accent-soft);
     text-align: center;
-    padding: 18px;
-    color: var(--text-muted);
+    padding: 25px;
+    color: var(--text-main);
     font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
 /* ====== GALERIA ====== */
@@ -527,4 +545,64 @@ h2 {
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 30px;
+}
+
+/*Przycisk pobierania zdjęć*/
+/* Styl bazowy dla przycisku (pobierany z Twojego HTML, ale dodajemy płynność) */
+.lightbox-download-btn {
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* EFEKT HOVER */
+.lightbox-download-btn:hover {
+    transform: scale(1.15); /* Powiększenie przycisku o 15% */
+    background-color: #ffffff !important; /* Zmiana tła na czystą biel */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3) !important; /* Mocniejszy cień */
+}
+
+/* Opcjonalnie: zmiana koloru ikonki wewnątrz przycisku na Twój złoty akcent */
+.lightbox-download-btn:hover svg {
+    stroke: var(--accent) !important;
+}
+
+/* Kontener dla każdej osoby */
+.contact-row-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Imię na środku nad numerem */
+}
+
+/* Link łączący ikonkę i tekst w jeden wiersz */
+.contact-link-row {
+    display: flex;
+    align-items: center; /* Ikonka i numer w jednej linii (pionowo wyśrodkowane) */
+    gap: 12px;           /* Odstęp między ikonką a numerem */
+    background: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 50px; /* Zaokrąglony kształt "pigułki" */
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+/* Małe kółeczko dla ikonki */
+.contact-icon-small {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+
+/* EFEKT HOVER */
+.contact-link-row:hover {
+    background: var(--accent);
+    color: #fff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.contact-link-row:hover .contact-icon-small {
+    color: #fff;
 }
