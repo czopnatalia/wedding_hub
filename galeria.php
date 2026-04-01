@@ -44,9 +44,9 @@ $res = $db->query("SELECT * FROM photos WHERE status='approved' ORDER BY uploade
     
     <div class="lightbox-frame" onclick="event.stopPropagation()" style="text-align: center; position: relative; display: block;">
         
-        <a href="" id="downloadBtn" download 
-           style="position: absolute; top: 15px; right: 15px; z-index: 10; cursor: pointer; background: rgba(255,255,255,0.8); border-radius: 50%; padding: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+        <a href="" id="downloadBtn" download class="lightbox-download-btn"
+           style="position: absolute; top: 15px; right: 15px; z-index: 10; cursor: pointer; background: rgba(255,255,255,0.8); border-radius: 50%; padding: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-main);">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>

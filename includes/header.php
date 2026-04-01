@@ -24,6 +24,8 @@ if (!$has_access && !$is_index) {
     <link rel="icon" type="image/jpeg" href="/wedding_hub/favicon.jpg">
 </head>
 <body>
+<div class="site-wrapper" style="display: flex; flex-direction: column; min-height: 100vh;">
+
 <header class="site-header">
     <div class="site-header-inner">
         <div class="site-title-panel fade-in-up">
@@ -33,8 +35,8 @@ if (!$has_access && !$is_index) {
             <a class="nav-tile" href="home.php">Strona główna</a>
             <a class="nav-tile" href="rsvp.php">Potwierdź obecność</a>
             <a class="nav-tile" href="galeria.php">Galeria zdjęć</a>
-            <a class="nav-tile" href="admin/dashboard.php">Administrator</a>
+            <a class="nav-tile" href="admin/admin_login.php">Administrator</a>
         </nav>
     </div>
 </header>
-<div class="main">
+<div class="site-wrapper"> <div class="main">
