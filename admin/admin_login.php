@@ -1,4 +1,16 @@
-<?php include '../includes/header.php'; ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Jeśli admin już jest zalogowany, nie pokazuj mu formularza, tylko przenieś do dashboardu
+if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
+    header("Location: /wedding_hub/admin/dashboard.php");
+    exit;
+}
+
+include '../includes/header.php'; 
+?>
 
 <style>
 .login-panel {
