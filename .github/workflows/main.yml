@@ -1,0 +1,22 @@
+name: Deploy to AwardSpace
+on:
+  push:
+    branches:
+      - main  # Akcja odpali się po pushu na gałąź main
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: 📂 Sync files to AwardSpace
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # Opcjonalnie: ścieżka na serwerze (np. /twojadomena.com/ )
+        # server-dir: /
